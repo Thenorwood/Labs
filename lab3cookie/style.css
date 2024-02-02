@@ -30,15 +30,34 @@ body {
     height: 100px;
     border-radius: 50%;
     margin: 10px;
-    opacity: 0.2;
-    transition: opacity 0.5s;
+    font-size: 40px;
+    opacity: 0.2; /* Initially opaque for the first three */
+    display: inline-block;
+    cursor: default; /* Initially not clickable */
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+#poo {
+    display: none; /* The poo emoji starts completely hidden */
 }
 
 .space-object.unlocked {
-    opacity: 1;
+    opacity: 1; /* Make fully visible when unlocked */
+    cursor: pointer; /* Change to pointer when unlocked */
+    transform: scale(2);
 }
 
-.space-object.unlocked, .space-object.clicked {
-    opacity: 1;
-    transform: scale(1.2); /* Enlarged when clicked or unlocked */
+
+@keyframes pooAppearAndShrink {
+    0% {
+        transform: scale(30); /* Start huge */
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3); /* Shrink to normal size */
+    }
+}
+
+#poo.unlocked {
+    animation: pooAppearAndShrink 0.3s forwards; /* Apply the animation when poo is unlocked */
 }
