@@ -32,18 +32,14 @@ body {
     margin: 10px;
     opacity: 0.2;
     transition: opacity 0.5s, transform 0.3s;
-    cursor: default; /* Default to not clickable */
+    cursor: pointer; /* Updated to always show pointer */
 }
 
-.space-object.unlocked {
-    opacity: 1;
-    cursor: pointer; /* Change to pointer when unlocked */
-}
-
-.space-object.clicked {
-    transform: scale(1.2); /* Enlarge when clicked */
-}
-
-.hidden {
+.space-object.hidden {
     display: none;
+}
+
+.space-object.unlocked, .space-object.clicked {
+    opacity: 1;
+    transform: scale(1.2); /* Enlarged when clicked or unlocked */
 }
