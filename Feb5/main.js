@@ -89,3 +89,44 @@ async function fetchDataSequence() {
  
 // Trigger the sequence
 fetchDataSequence();
+
+
+/* Timeouts and Intervals by Date/Time */
+const myLocaleInterval = setInterval(greet);
+ 
+ 
+/* greet at 5s automatically  */
+function greet() {
+    let myTimeDiv = document.getElementById('myTimeDiv');
+    const date = new Date();  
+    myTimeDiv.innerHTML = date.toLocaleTimeString();
+}
+ 
+/* Stop Button */
+//Add what to do when clicked
+document.getElementById("stop").addEventListener("click", stopTheClock);
+ 
+function stopTheClock(){
+  clearInterval(myLocaleInterval);
+}
+ 
+// To stop the interval after a certain time (e.g., 10 seconds), you can use setTimeout
+//This excludes HTML and runs automatically
+/*setTimeout(function () {
+    clearInterval(intervalId,2000); // Stop the interval
+    //console.log("Interval stopped after 10 seconds.");
+}, 10000);*/
+
+//setTimeout (function() {
+ //   clearInterval(intervalId, 2000);
+  //  console.log ("HalloHallo:");
+//}, 10000)
+
+
+
+//const myLocaleInterval = setInterval(greet, 5000);
+
+
+//display the time on my app
+var today = new Date();
+var time =  today.getHours() + ":" + today.getMinutes();
